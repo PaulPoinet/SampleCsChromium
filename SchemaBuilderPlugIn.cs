@@ -1,4 +1,4 @@
-﻿namespace SampleCsChromium
+﻿namespace SchemaBuilder
 {
   ///<summary>
   /// <para>Every RhinoCommon .rhp assembly must have one and only one PlugIn-derived
@@ -8,15 +8,15 @@
   /// attributes in AssemblyInfo.cs (you might need to click "Project" ->
   /// "Show All Files" to see it in the "Solution Explorer" window).</para>
   ///</summary>
-  public class SampleCsChromiumPlugIn : Rhino.PlugIns.PlugIn
+  public class SchemaBuilderPlugIn : Rhino.PlugIns.PlugIn
   {
-    public SampleCsChromiumPlugIn()
+    public SchemaBuilderPlugIn()
     {
       Instance = this;
     }
 
     ///<summary>Gets the only instance of the SampleCsChromiumPlugIn plug-in.</summary>
-    public static SampleCsChromiumPlugIn Instance
+    public static SchemaBuilderPlugIn Instance
     {
       get;
       private set;
@@ -31,15 +31,15 @@
     /// </summary>
     protected override Rhino.PlugIns.LoadReturnCode OnLoad(ref string errorMessage)
     {
-      var panel_type = typeof(SampleCsChromiumPanelControl);
-      Rhino.UI.Panels.RegisterPanel(this, panel_type, "Chromium", Properties.Resources.SampleCsChromium);
+      var panel_type = typeof(SchemaBuilderPanelControl);
+      Rhino.UI.Panels.RegisterPanel(this, panel_type, "Chromium", SchemaBuilder.Properties.Resources.SchemaBuilder);
       return Rhino.PlugIns.LoadReturnCode.Success;
     }
 
     /// <summary>
     /// Gets tabbed dockbar user control
     /// </summary>
-    public SampleCsChromiumPanelControl UserControl
+    public SchemaBuilderPanelControl UserControl
     {
       get;
       set;

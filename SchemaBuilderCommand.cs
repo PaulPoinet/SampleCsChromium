@@ -3,15 +3,15 @@ using Rhino.Commands;
 using Rhino.Input.Custom;
 using Rhino.UI;
 
-namespace SampleCsChromium
+namespace SchemaBuilder
 {
   [System.Runtime.InteropServices.Guid("a599ea16-fe94-470f-b951-2d26fac5160e")]
-  public class SampleCsChromiumCommand : Command
+  public class SchemaBuilderCommand : Command
   {
     /// <summary>
     /// Constructor
     /// </summary>
-    public SampleCsChromiumCommand()
+    public SchemaBuilderCommand()
     {
       // Rhino only creates one instance of each command class defined in a
       // plug-in, so it is safe to store a refence in a static property.
@@ -21,7 +21,7 @@ namespace SampleCsChromium
     /// <summary>
     /// Gets the only instance of the this command.
     /// </summary>
-    public static SampleCsChromiumCommand Instance
+    public static SchemaBuilderCommand Instance
     {
       get;
       private set;
@@ -40,7 +40,7 @@ namespace SampleCsChromium
     /// </summary>
     protected override Result RunCommand(RhinoDoc doc, RunMode mode)
     {
-      var panel_id = SampleCsChromiumPanelControl.PanelId;
+      var panel_id = SchemaBuilderPanelControl.PanelId;
       var visible = Panels.IsPanelVisible(panel_id);
 
       string prompt = (visible)

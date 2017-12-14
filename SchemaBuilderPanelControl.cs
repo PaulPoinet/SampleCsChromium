@@ -5,10 +5,10 @@ using CefSharp.WinForms;
 using System.Reflection;
 using System.IO;
 
-namespace SampleCsChromium
+namespace SchemaBuilder
 {
   [System.Runtime.InteropServices.Guid("A687BDD9-F74C-4BB2-88E0-E2AEC95A9FCE")]
-  public partial class SampleCsChromiumPanelControl : UserControl
+  public partial class SchemaBuilderPanelControl : UserControl
   {
     private ChromiumWebBrowser m_browser;
 
@@ -19,15 +19,15 @@ namespace SampleCsChromium
     {
       get
       {
-        return typeof(SampleCsChromiumPanelControl).GUID;
+        return typeof(SchemaBuilderPanelControl).GUID;
       }
     }
 
-    public SampleCsChromiumPanelControl()
+    public SchemaBuilderPanelControl()
     {
       InitializeComponent();
       InitializeBrowser();
-      SampleCsChromiumPlugIn.Instance.UserControl = this;
+      SchemaBuilderPlugIn.Instance.UserControl = this;
       this.Disposed += new EventHandler(OnDisposed);
     }
 
@@ -43,7 +43,7 @@ namespace SampleCsChromium
       settings.BrowserSubprocessPath = pathSubprocess;
       Cef.Initialize(settings);
 
-      m_browser = new ChromiumWebBrowser("http://www.rhino3d.com/");
+      m_browser = new ChromiumWebBrowser("http://localhost:9090/");
       Controls.Add(m_browser);
       m_browser.Dock = DockStyle.Fill;
       m_browser.Enabled = true;
@@ -58,7 +58,7 @@ namespace SampleCsChromium
     {
       m_browser.Dispose();
       Cef.Shutdown();
-      SampleCsChromiumPlugIn.Instance.UserControl = null;
+      SchemaBuilderPlugIn.Instance.UserControl = null;
     }
   }
 }
